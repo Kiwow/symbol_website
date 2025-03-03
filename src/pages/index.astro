@@ -11,9 +11,10 @@ const contactEmail = "volfmatyas1@gmail.com";
 const emailSubject = `${title} issue`;
 const contactHref = `mailto:${contactEmail}?subject=${encodeURIComponent(emailSubject)}`;
 
-const symbols = Array.from("ďťňěščřžýáíéó")
-  .flatMap((char) => (char === char.toUpperCase() ? [char] : [char, char.toUpperCase()]))
-  .sort((a, b) => a.localeCompare(b));
+const symbols = [
+  ...Array.from("ďťňěščřžýáíéóöäü").flatMap((char) => [char, char.toUpperCase()]),
+  ...Array.from("§;`'\"“”#$%^\\…|[]{}ß"),
+].sort((a, b) => a.localeCompare(b));
 ---
 
 <html lang="en">
