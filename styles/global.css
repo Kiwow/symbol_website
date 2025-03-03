@@ -38,16 +38,16 @@ body > h1 {
 
   text-align: center;
   font-weight: bold;
-  font-size: 2.4em;
+  font-size: 2.5em;
   text-decoration: underline;
-}
-
-footer {
-  margin-block: 1.5em;
 }
 
 address {
   font-style: initial;
+}
+
+.flow > * + * {
+  margin-block-start: var(--flow-space, 1em);
 }
 
 .symbol-cards {
@@ -85,4 +85,25 @@ address {
 
 .symbol-card :is(button:active, button:hover) {
   background-color: color-mix(in oklab, var(--body-alt) 40%, var(--background-alt) 100%);
+}
+
+footer {
+  --space: 1.5em;
+
+  margin-block: var(--space);
+  padding-inline: var(--space);
+  width: 100%;
+}
+
+.bottom-nav {
+  font-family: serif;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space);
+}
+
+.bottom-nav > ul {
+  --flow-space: 0.5em;
 }

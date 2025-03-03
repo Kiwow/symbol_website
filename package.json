@@ -2,6 +2,13 @@
   "name": "symbol_website",
   "type": "module",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kiwow/symbol_website"
+  },
+  "bugs": {
+    "url": "https://github.com/Kiwow/symbol_website/issues/new"
+  },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",

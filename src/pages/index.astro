@@ -1,8 +1,15 @@
 ---
+import pkgJson from "../../package.json";
+
 import "../../styles/reset.css";
 import "../../styles/global.css";
 
 const title = "Symbol website";
+const issuesLink = pkgJson.bugs.url;
+
+const contactEmail = "volfmatyas1@gmail.com";
+const emailSubject = `${title} issue`;
+const contactHref = `mailto:${contactEmail}?subject=${encodeURIComponent(emailSubject)}`;
 
 const symbols = Array.from("ďťňěščřžýáíéó")
   .flatMap((char) => (char === char.toUpperCase() ? [char] : [char, char.toUpperCase()]))
@@ -56,11 +63,19 @@ const symbols = Array.from("ďťňěščřžýáíéó")
       </ul>
     </main>
     <footer>
-      Inspired by <a href="https://www.notengoenie.com/" target="_blank">NoTengoEnie</a>
-      <address>
-        Made by Matyáš Volf,
-        <a href="https://github.com/Kiwow">Kiwow on GitHub</a>
-      </address>
+      <nav class="bottom-nav">
+        <span>
+          Inspired by <a href="https://www.notengoenie.com/" target="_blank">NoTengoEnie</a>
+        </span>
+        <ul role="list" class="flow contacts">
+          <li>
+            <address>
+              Made by <a href={contactHref}>Matyáš Volf</a>
+            </address>
+          </li>
+          <li><a href={issuesLink}>Report an issue</a></li>
+        </ul>
+      </nav>
     </footer>
   </body>
 </html>
