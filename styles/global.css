@@ -1,0 +1,88 @@
+:root {
+  --dark-red: #780000;
+  --red: #c1121f;
+  --beige: #fdf0d5;
+  --dark-blue: #003049;
+  --blue: #449bbc;
+
+  --body: var(--red);
+  --background: var(--beige);
+  --body-alt: var(--beige);
+  --background-alt: var(--dark-red);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --body: var(--beige);
+    --background: var(--dark-blue);
+    --body-alt: var(--dark-blue);
+    --background-alt: var(--beige);
+  }
+}
+
+body {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  font-family: sans-serif;
+  color: var(--body);
+  background: var(--background);
+}
+
+body > h1 {
+  margin-block: 1em;
+
+  text-align: center;
+  font-weight: bold;
+  font-size: 2.4em;
+  text-decoration: underline;
+}
+
+footer {
+  margin-block: 1.5em;
+}
+
+address {
+  font-style: initial;
+}
+
+.symbol-cards {
+  --card-size: 5rem;
+  --gap: 1.75rem;
+  --max-cards-in-row: 6;
+
+  margin: 1rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: min(calc(6 * var(--card-size)), 80vw);
+  gap: var(--gap);
+}
+
+.symbol-card {
+  text-align: center;
+}
+
+.symbol-card h2 {
+  font-size: calc(0.5 * var(--card-size));
+  margin: 0;
+  padding: 0;
+}
+
+.symbol-card button {
+  color: var(--body-alt);
+  background: var(--background-alt);
+
+  margin-block-start: 0.5rem;
+  padding: 0.35rem;
+  border-radius: 0.5rem;
+}
+
+.symbol-card :is(button:active, button:hover) {
+  background-color: color-mix(in oklab, var(--body-alt) 40%, var(--background-alt) 100%);
+}

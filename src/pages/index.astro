@@ -1,16 +1,66 @@
 ---
+import "../../styles/reset.css";
+import "../../styles/global.css";
 
+const title = "Symbol website";
+
+const symbols = Array.from("ďťňěščřžýáíéó")
+  .flatMap((char) => (char === char.toUpperCase() ? [char] : [char, char.toUpperCase()]))
+  .sort((a, b) => a.localeCompare(b));
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <script>
+      function copySymbol(event: Event): void {
+        if (!(event.target instanceof HTMLElement)) {
+          throw new Error("Cannot handle copying symbol on this element");
+        }
+
+        const symbol = event.target.parentElement?.querySelector(".symbol-text")?.textContent;
+        if (!symbol) {
+          throw new Error("Missing symbol to copy");
+        }
+
+        navigator.clipboard
+          .writeText(symbol)
+          .then(() => console.log(`copied "${symbol}" to clipboard`));
+      }
+
+      for (const copyElement of document.querySelectorAll('[data-action="copy-symbol"]')) {
+        copyElement.addEventListener("click", copySymbol);
+      }
+    </script>
+  </head>
+  <body>
+    <h1>{title}</h1>
+    <main>
+      <ul role="list" class="symbol-cards">
+        {
+          symbols.map((symbol) => (
+            <li class="symbol-card">
+              <section>
+                <h2 class="symbol-text">{symbol}</h2>
+                <button data-action="copy-symbol" type="button">
+                  Copy
+                </button>
+              </section>
+            </li>
+          ))
+        }
+      </ul>
+    </main>
+    <footer>
+      Inspired by <a href="https://www.notengoenie.com/" target="_blank">NoTengoEnie</a>
+      <address>
+        Made by Matyáš Volf,
+        <a href="https://github.com/Kiwow">Kiwow on GitHub</a>
+      </address>
+    </footer>
+  </body>
 </html>
