@@ -52,8 +52,10 @@ address {
 
 .symbol-cards {
   --card-size: 5rem;
+  --soft-max-width: 50rem;
+
   margin-block: 1rem;
-  margin-inline: max(1rem, calc(50vw - 5 * var(--card-size)));
+  margin-inline: max(1rem, calc(50vw - calc(var(--soft-max-width) / 2)));
 
   display: grid;
   grid-template-columns: repeat(auto-fill, var(--card-size));
