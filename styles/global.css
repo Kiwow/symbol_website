@@ -61,16 +61,16 @@ address {
   gap: 1.75rem;
 }
 
-.symbol-card {
-  text-align: center;
-}
-
 .symbol-text {
   display: block;
   line-height: 1.1;
   font-size: calc(0.65 * var(--card-size));
   margin: 0;
   padding: 0.1em;
+}
+
+.symbol-card {
+  text-align: center;
 }
 
 .symbol-card button {
