@@ -27,8 +27,9 @@ dd {
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-ul[role="list"],
-ol[role="list"] {
+ul,
+ol,
+menu {
   list-style: none;
 }
 
@@ -105,7 +106,7 @@ textarea:not([rows]) {
   }
 }
 
-:where(ul, ol) {
+:where(ul, ol, menu) {
   margin: 0;
   padding: 0;
 }

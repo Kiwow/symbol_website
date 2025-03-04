@@ -26,7 +26,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items: stretch;
 
   font-family: sans-serif;
   color: var(--body);
@@ -52,26 +52,25 @@ address {
 
 .symbol-cards {
   --card-size: 5rem;
-  --gap: 1.75rem;
-  --max-cards-in-row: 6;
+  margin-block: 1rem;
+  margin-inline: max(1rem, calc(50vw - 5 * var(--card-size)));
 
-  margin: 1rem;
-
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, var(--card-size));
   justify-content: center;
-  max-width: min(calc(6 * var(--card-size)), 80vw);
-  gap: var(--gap);
+  gap: 1.75rem;
 }
 
 .symbol-card {
   text-align: center;
 }
 
-.symbol-card h2 {
-  font-size: calc(0.5 * var(--card-size));
+.symbol-text {
+  display: block;
+  line-height: 1.1;
+  font-size: calc(0.65 * var(--card-size));
   margin: 0;
-  padding: 0;
+  padding: 0.1em;
 }
 
 .symbol-card button {
@@ -100,7 +99,7 @@ footer {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   gap: var(--space);
 }
 
