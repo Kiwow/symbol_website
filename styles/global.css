@@ -54,8 +54,8 @@ address {
   font-style: initial;
 }
 
-.flow > * + * {
-  margin-block-start: var(--flow-space, 1em);
+button {
+  cursor: pointer;
 }
 
 .symbol-cards {
@@ -114,4 +114,10 @@ footer {
 
 .bottom-nav > ul {
   --flow-space: 0.5em;
+}
+
+/* Utilities */
+
+.flow > * + * {
+  margin-block-start: var(--flow-space, 1em);
 }
