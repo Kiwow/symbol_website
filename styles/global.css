@@ -25,12 +25,17 @@ body {
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: stretch;
 
   font-family: sans-serif;
   color: var(--body);
   background: var(--background);
+}
+
+main {
+  flex: 1;
+  margin-block: 1rem;
+  margin-inline: 2rem;
 }
 
 body > h1 {
@@ -52,10 +57,9 @@ address {
 
 .symbol-cards {
   --card-size: 5rem;
-  --soft-max-width: 50rem;
 
-  margin-block: 1rem;
-  margin-inline: max(2rem, calc(50vw - calc(var(--soft-max-width) / 2)));
+  max-width: 70rem;
+  margin-inline: auto;
 
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(var(--card-size), 1fr));
