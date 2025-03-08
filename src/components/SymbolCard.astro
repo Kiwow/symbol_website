@@ -2,5 +2,6 @@
 const { symbol } = Astro.props;
 ---
 
-<span class="symbol-text">{symbol}</span>
-<button data-action="copy-symbol" type="button">Copy</button>
+<button type="button" data-action="copy-symbol">
+  <span class="symbol-text">{symbol}</span>
+</button>
