@@ -31,12 +31,16 @@ dd {
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
 :where(ul, ol, menu)[role="list"] {
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 /* Set core body defaults */
 body {
   min-height: 100vh;
   line-height: 1.5;
+  margin: 0;
+  padding: 0;
 }
 
 /* Set shorter line heights on headings and interactive elements */
