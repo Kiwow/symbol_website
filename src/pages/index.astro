@@ -14,7 +14,7 @@ const contactHref = `mailto:${contactEmail}?subject=${encodeURIComponent(emailSu
 
 const symbols = [
   ...Array.from("ďťňěščřžýáíéóöäü").flatMap((char) => [char, char.toUpperCase()]),
-  ...Array.from("§;`'\"„“#$%^\\…|[]{}ß×–→←↑↓"),
+  ...Array.from("§;`'\"„“#$%^\\/…|[]{}ß×–→←↑↓~"),
 ].sort((a, b) => a.localeCompare(b));
 ---
 
