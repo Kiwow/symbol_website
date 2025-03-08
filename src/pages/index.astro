@@ -47,9 +47,12 @@ const symbols = [
     </script>
   </head>
   <body>
-    <h1>{title}</h1>
+    <hgroup class="flow">
+      <h1>{title}</h1>
+      <p>Click a symbol to copy it</p>
+    </hgroup>
     <main>
-      <menu class="symbol-cards">
+      <menu class="symbol-cards" role="list">
         {
           symbols.map((symbol) => (
             <li class="symbol-card">
