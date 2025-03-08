@@ -6,11 +6,10 @@ import "../../styles/reset.css";
 import "../../styles/global.css";
 
 const title = "Symbol website";
-const issuesLink = pkgJson.bugs.url;
+const githubLink = new URL(pkgJson.repository.url.slice(4)).href;
 
 const contactEmail = "volfmatyas1@gmail.com";
-const emailSubject = `${title} issue`;
-const contactHref = `mailto:${contactEmail}?subject=${encodeURIComponent(emailSubject)}`;
+const contactHref = `mailto:${contactEmail}`;
 
 const symbols = [
   ...Array.from("ďťňěščřžýáíéóöäü").flatMap((char) => [char, char.toUpperCase()]),
@@ -73,7 +72,7 @@ const symbols = [
               Made by <a href={contactHref}>Matyáš Volf</a>
             </address>
           </li>
-          <li><a href={issuesLink}>Report an issue</a></li>
+          <li>See the <a href={githubLink} target="_blank">source code</a></li>
         </ul>
       </nav>
     </footer>
