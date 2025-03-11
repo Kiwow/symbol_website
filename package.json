@@ -7,7 +7,7 @@
     "url": "git+https://github.com/Kiwow/symbol_website"
   },
   "bugs": {
-    "url": "https://github.com/Kiwow/symbol_website/issues/new"
+    "url": "https://github.com/Kiwow/symbol_website/issues"
   },
   "scripts": {
     "dev": "astro dev",
