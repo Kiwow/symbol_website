@@ -56,6 +56,14 @@ button {
   cursor: pointer;
 }
 
+button:focus,
+a:focus {
+  outline-width: 2px;
+  outline-style: solid;
+  outline-color: var(--background-alt);
+  outline-offset: 0.25lh;
+}
+
 .symbol-cards {
   --card-size: 5rem;
 
