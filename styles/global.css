@@ -56,12 +56,27 @@ button {
   cursor: pointer;
 }
 
-button:focus,
-a:focus {
+:focus {
   outline-width: 2px;
   outline-style: solid;
   outline-color: var(--background-alt);
   outline-offset: 0.25lh;
+}
+
+@supports (selector(:focus-visible)) {
+  :focus {
+    outline-width: revert;
+    outline-style: revert;
+    outline-color: revert;
+    outline-offset: revert;
+  }
+
+  :focus-visible {
+    outline-width: 2px;
+    outline-style: solid;
+    outline-color: var(--background-alt);
+    outline-offset: 0.25lh;
+  }
 }
 
 .symbol-cards {
