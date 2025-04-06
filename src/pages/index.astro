@@ -1,80 +1,16 @@
 ---
-import SymbolCard from "../components/SymbolCard.astro";
-import pkgJson from "../../package.json";
+import type { ComponentProps } from "astro/types";
+import MainLayout from "../layouts/index.astro";
 
-import "../../styles/reset.css";
-import "../../styles/global.css";
-
-const title = "Symbol website";
-const githubLink = new URL(pkgJson.repository.url.slice(4)).href;
-
-const contactEmail = "volfmatyas1@gmail.com";
-const contactHref = `mailto:${contactEmail}`;
-
-const symbols = [
-  ...Array.from("ďťňěščřžýáíéóöäü").flatMap((char) => [char, char.toUpperCase()]),
-  ...Array.from("§;`'\"„“#$%^\\/…|[]{}ß×–→←↑↓~≠"),
-].sort((a, b) => a.localeCompare(b));
+const layoutProps: ComponentProps<typeof MainLayout> = {
+  languageCode: "en",
+  pageTitle: "Symbol website",
+  clickToCopy: "Click a symbol to copy it",
+  inspiredBy: "Inspired by",
+  madeBy: "Made by",
+  seeThe: "See the",
+  sourceCode: "source code",
+};
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-    <script>
-      function copySymbol(event: Event): void {
-        if (!(event.target instanceof HTMLElement)) {
-          throw new Error("Cannot handle copying symbol on this element");
-        }
-
-        const symbol = event.target.parentElement?.querySelector(".symbol-text")?.textContent;
-        if (!symbol) {
-          throw new Error("Missing symbol to copy");
-        }
-
-        navigator.clipboard
-          .writeText(symbol)
-          .then(() => console.log(`copied "${symbol}" to clipboard`));
-      }
-
-      for (const copyElement of document.querySelectorAll('[data-action="copy-symbol"]')) {
-        copyElement.addEventListener("click", copySymbol);
-      }
-    </script>
-  </head>
-  <body>
-    <hgroup class="flow">
-      <h1>{title}</h1>
-      <p>Click a symbol to copy it</p>
-    </hgroup>
-    <main>
-      <menu class="symbol-cards" role="list">
-        {
-          symbols.map((symbol) => (
-            <li class="symbol-card">
-              <SymbolCard symbol={symbol} />
-            </li>
-          ))
-        }
-      </menu>
-    </main>
-    <footer>
-      <nav class="bottom-nav">
-        <span>
-          Inspired by <a href="https://www.notengoenie.com/" target="_blank">NoTengoEnie</a>
-        </span>
-        <ul role="list" class="flow contacts">
-          <li>
-            <address>
-              Made by <a href={contactHref}>Matyáš Volf</a>
-            </address>
-          </li>
-          <li>See the <a href={githubLink} target="_blank">source code</a></li>
-        </ul>
-      </nav>
-    </footer>
-  </body>
-</html>
+<MainLayout {...layoutProps} />
