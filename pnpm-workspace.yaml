@@ -1,0 +1,11 @@
+minimumReleaseAge: 2880
+minimumReleaseAgeIgnoreMissingTime: false
+trustPolicy: no-downgrade
+
+enableGlobalVirtualStore: true
+
+verifyDepsBeforeRun: error
+dedupePeers: true
+allowBuilds:
+  esbuild: false
+  sharp: false
